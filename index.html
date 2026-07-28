@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>IIT Dolkpur | Student Result Portal</title>
+    <title data-i18n="appTitle">IIT Dholkpur | Student Result Portal</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -30,6 +30,21 @@
 
     <div class="container">
 
+        <!-- Top Bar with Language Selector -->
+        <div class="lang-bar">
+            <div class="lang-selector">
+                <i class="fa-solid fa-globe"></i>
+                <select id="langSelect" onchange="setLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="ta">தமிழ் (Tamil)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="mr">मराठी (Marathi)</option>
+                </select>
+            </div>
+        </div>
+
         <!-- Header -->
 
         <div class="header">
@@ -38,9 +53,9 @@
                 <i class="fas fa-graduation-cap"></i>
             </div>
 
-            <h1>IIT Dolkpur</h1>
+            <h1 data-i18n="appTitle">IIT Dolkpur</h1>
 
-            <p>Official Student Result Management Portal</p>
+            <p data-i18n="appSubtitle">Official Student Result Management Portal</p>
 
         </div>
 
@@ -52,10 +67,11 @@
 
                 <label>
                     <i class="fa-solid fa-user"></i>
-                    Student Name
+                    <span data-i18n="studentNameLabel">Student Name</span>
                 </label>
 
-                <input type="text" id="nameInput" placeholder="Enter Student Name">
+                <input type="text" id="nameInput" data-i18n-placeholder="studentNamePlaceholder"
+                    placeholder="Enter Student Name">
 
             </div>
 
@@ -63,10 +79,11 @@
 
                 <label>
                     <i class="fa-solid fa-id-card"></i>
-                    Roll Number
+                    <span data-i18n="rollNumberLabel">Roll Number</span>
                 </label>
 
-                <input type="number" id="rollInput" placeholder="101 - 160">
+                <input type="number" id="rollInput" data-i18n-placeholder="rollNumberPlaceholder"
+                    placeholder="101 - 160">
 
             </div>
 
@@ -74,20 +91,20 @@
 
                 <label>
                     <i class="fa-solid fa-book"></i>
-                    Semester
+                    <span data-i18n="semesterLabel">Semester</span>
                 </label>
 
                 <select id="semester">
 
-                    <option value="sem1">Semester 1</option>
+                    <option value="sem1" data-i18n="sem1">Semester 1</option>
 
-                    <option value="sem2">Semester 2</option>
+                    <option value="sem2" data-i18n="sem2">Semester 2</option>
 
                 </select>
 
             </div>
 
-            <button id="checkBtn" onclick="checkResult()">
+            <button id="checkBtn" onclick="checkResult()" data-i18n="checkResultBtn">
 
                 <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -103,7 +120,7 @@
 
             <div class="spinner"></div>
 
-            <p>Fetching Student Result...</p>
+            <p data-i18n="fetchingResult">Fetching Student Result...</p>
 
         </div>
 
@@ -119,11 +136,11 @@
 
                 <i class="fa-solid fa-shield-halved"></i>
 
-                IIT Dolkpur Examination Cell
+                <span data-i18n="examCell">IIT Dolkpur Examination Cell</span>
 
             </p>
 
-            <small>
+            <small data-i18n="copyright">
 
                 © 2026 Student Result Management System
 
@@ -133,8 +150,8 @@
 
     </div>
 
+    <script src="lang.js"></script>
     <script src="script.js"></script>
-
 </body>
 
 </html>
