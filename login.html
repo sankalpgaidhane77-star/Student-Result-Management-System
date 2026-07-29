@@ -327,36 +327,48 @@
 
     <div class="login-card" id="card">
 
+        <div class="lang-switcher" style="margin-bottom: 15px; justify-content: flex-end;">
+            <select id="languageSelect" onchange="setLanguage(this.value)" style="background: rgba(255,255,255,0.2); color: white; padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); font-size: 13px; cursor: pointer; outline: none;">
+                <option value="en" style="background:#1e293b; color:#fff;">English (English)</option>
+                <option value="hi" style="background:#1e293b; color:#fff;">हिंदी (Hindi)</option>
+                <option value="ta" style="background:#1e293b; color:#fff;">தமிழ் (Tamil)</option>
+                <option value="te" style="background:#1e293b; color:#fff;">తెలుగు (Telugu)</option>
+                <option value="bn" style="background:#1e293b; color:#fff;">বাংলা (Bengali)</option>
+                <option value="mr" style="background:#1e293b; color:#fff;">मराठी (Marathi)</option>
+            </select>
+        </div>
+
         <div class="logo">🎓</div>
 
-        <h2>Student Result Management</h2>
+        <h2 data-i18n="login_title">Student Result Management</h2>
 
         <div class="input-group">
 
-            <input type="text" id="username" placeholder="Username">
+            <input type="text" id="username" placeholder="Username" data-i18n-placeholder="placeholder_username">
 
         </div>
 
         <div class="input-group">
 
-            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="password" placeholder="Password" data-i18n-placeholder="placeholder_password">
 
             <span class="toggle" onclick="togglePassword()">👁️</span>
 
         </div>
 
-        <button onclick="login()">
+        <button onclick="login()" data-i18n="btn_login">
             Login
         </button>
 
         <p id="error"></p>
 
-        <div class="footer">
+        <div class="footer" data-i18n="login_footer_text">
             Enter your username and password to continue.
         </div>
 
     </div>
 
+    <script src="translations.js"></script>
     <script>
 
         function togglePassword() {
@@ -381,7 +393,7 @@
 
                 error.style.color = "#ffbaba";
 
-                error.innerHTML = "✖ Please fill in all fields.";
+                error.innerHTML = t("err_fill_all");
 
                 card.classList.remove("success");
 
@@ -399,7 +411,7 @@
 
             error.style.color = "#8cff8c";
 
-            error.innerHTML = "✔ Login Successful";
+            error.innerHTML = t("success_login");
 
             card.classList.remove("shake");
 
