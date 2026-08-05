@@ -887,3 +887,49 @@ footer small {
     }
 
 }
+
+/* ===========================
+   LANGUAGE SWITCHER
+=========================== */
+
+.lang-switcher {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.lang-switcher label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-switcher select {
+    width: auto;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.lang-switcher select:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.lang-switcher select option {
+    background: #1e293b;
+    color: #fff;
+    padding: 8px;
+}
