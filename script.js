@@ -77,10 +77,10 @@ const semesters = {
 const students = {};
 const TOTAL_STUDENTS = 60;
 
-// ---------- Random Marks ----------
+// ---------- Stable Demo Marks ----------
 
-function randomMarks() {
-    return Math.floor(Math.random() * 66) + 35;
+function generatedMarks(studentIndex, semesterIndex, subjectIndex) {
+    return 35 + ((studentIndex * 17 + semesterIndex * 31 + subjectIndex * 13) % 66);
 }
 
 // ---------- Create Students ----------
@@ -93,11 +93,11 @@ function generateStudents() {
 
         const semesterMarks = {};
 
-        Object.entries(semesters).forEach(([semester, subjects]) => {
+        Object.entries(semesters).forEach(([semester, subjects], semesterIndex) => {
             semesterMarks[semester] = {};
 
-            subjects.forEach(subject => {
-                semesterMarks[semester][subject] = randomMarks();
+            subjects.forEach((subject, subjectIndex) => {
+                semesterMarks[semester][subject] = generatedMarks(i, semesterIndex, subjectIndex);
             });
         });
 
@@ -220,7 +220,7 @@ function renderResultCard(student, semester, name) {
     const grade = overallGrade(percentage);
     const statusText = failed ? t("status_fail") : t("status_pass");
     const statusClass = failed ? "fail" : "pass";
-    const semText = t(semester === "sem1" ? "sem_1" : "sem_2");
+    const semText = t(`sem_${semester.slice(3)}`);
 
     resultDiv.innerHTML = `
     <div class="result-card">
